@@ -9,7 +9,6 @@ module Pronto
       end
 
       return [] unless files.any?
-      debugger
 
       output = ::Brakeman.run(app_path: repo_path,
                               output_formats: [:to_s])
