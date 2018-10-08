@@ -9,10 +9,10 @@ module Pronto
       end
 
       return [] unless files.any?
+      debugger
 
       output = ::Brakeman.run(app_path: repo_path,
-                              output_formats: [:to_s],
-                              only_files: files)
+                              output_formats: [:to_s])
       messages_for(ruby_patches, output).compact
     rescue ::Brakeman::NoApplication
       []
