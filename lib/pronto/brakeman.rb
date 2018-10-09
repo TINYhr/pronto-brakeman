@@ -11,7 +11,7 @@ module Pronto
       return [] unless files.any?
 
       output = ::Brakeman.run(app_path: repo_path,
-                              output_formats: [:to_s])
+                              output_formats: [:to_s], skip_files: 'app/views/')
       messages_for(ruby_patches, output).compact
     rescue ::Brakeman::NoApplication
       []
